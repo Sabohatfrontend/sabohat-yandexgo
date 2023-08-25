@@ -53,6 +53,7 @@ body {
     height: 100%;
     background-color: #fff;
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 img {
@@ -91,7 +92,8 @@ a {
 
 .button {
     padding: 24px 48px;
-    line-height: 22px;
+    line-height: 17px;
+    font-weight: 500;
     background-color: var(--yellow);
     border-radius: 36px;
     border: none;
@@ -100,8 +102,11 @@ a {
     transition: box-shadow 0.2s ease;
 }
 
-.button:hover {
-    box-shadow: 0px 4px 98px 0px #D2BDFF;
+.button:hover,
+.button.focus {
+    box-shadow: 0 0.5em 0.5em -0.4em #D2BDFF;
+        transform: translateY(-0.25em);
+
 }
 
 .button:active {
@@ -110,10 +115,12 @@ a {
 
 .site-header {
     position: relative;
+    display: flex;
     padding: 125px 0 115px;
-    background-image: url("../assets/images/circle_writing.png"), url("../assets/images/smkt.png");
+    background-image: url("../assets/images/smkt.png");
     background-repeat: no-repeat;
-    background-position: right calc(50% - 155px) bottom 205px, right calc(50% - 235px) top 45px;
+    background-size: contain;
+    background-position: right calc(50% - 235px) top 45px;
 }
 
 .header-background {
@@ -143,10 +150,16 @@ a {
     filter: blur(100px);
 }
 
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .logo-link {
+    display: block;
+    flex-shrink: 0;
     width: 176px;
     height: 52px;
-    display: flex;
     margin-bottom: 65px;
 }
 
@@ -206,7 +219,7 @@ a {
 }
 
 .features {
-    padding-bottom: 128px;
+    padding-bottom: 120px;
 }
 
 .features-heading {
@@ -266,4 +279,464 @@ a {
 
 .features-text {
     margin: 0;
+}
+
+.subscription {
+    position: relative;
+    padding-bottom: 945px;
+}
+
+.heading {
+    margin-top: 0;
+    margin-bottom: 35px;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 100%;
+    letter-spacing: -0.96px;
+}
+
+.subscription-heading {
+    max-width: 800px;
+}
+
+.subscription-text {
+    max-width: 440px;
+    margin-top: 0;
+    margin-bottom: 69px;
+}
+
+.subscription-images {
+    width: fit-content;
+    block-size: fit-content;
+}
+
+.subscription-images::before {
+    position: absolute;
+    display: block;
+    content: "";
+    z-index: 1000;
+    bottom: calc(50% + 350px);
+    left: calc(50% + 350px);
+    height: 200px;
+    width: 200px;
+    background-image: url("../assets/images/quote.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.subscription::after {
+    position: absolute;
+    display: block;
+    content: "";
+    z-index: 1000;
+    top: 122px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/images/point.png"),
+        url("../assets/images/cup.png");
+    background-position: left calc(50% - 454px) top 140px, left calc(50% + 420px) top calc(50% + 360px);
+    background-repeat: no-repeat;
+}
+
+.images-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: rotate(2deg);
+}
+
+.images-wrapper:last-child {
+    margin-left: -10px;
+}
+
+.subsciption-image {
+    position: absolute;
+    width: 456px;
+    height: 456px;
+    transform: rotate(2deg);
+    border-radius: 64px;
+}
+
+.subsciption-image:nth-child(1) {
+    top: 409px;
+    left: calc(50% - 470px);
+}
+
+.subsciption-image:nth-child(2) {
+    top: 198px;
+    left: 52%;
+}
+
+.subsciption-image:nth-child(3) {
+    top: 670px;
+    left: 50%;
+}
+
+.subsciption-image:nth-child(4) {
+    top: 882px;
+    left: calc(50% - 479px);
+}
+
+.button-wrapper {
+    display: none;
+}
+
+.facilities {
+    padding-top: 100px;
+    background-image: url("../assets/images/smkt_plus.png"),
+    url("../assets/images/circle_smkt.png");
+    background-repeat: no-repeat;
+    background-position: left calc(50% + 283px) top calc(50% - 280px),
+     left calc(50% - 325px) top calc(50% + 337px);
+     background-size: auto;
+}
+
+.facilities-content {
+    max-width: 415px;
+}
+
+.facilities-text {
+    margin-top: 0;
+    margin-bottom: 48px;
+}
+
+.facilities-top {
+    position: relative;
+}
+
+.facilities-top::before {
+    width: 413px;
+    height: 370px;
+    transform: rotate(-140deg);
+    flex-shrink: 0;
+    border-radius: 413px;
+    opacity: 0.29;
+    background: #8241EF;
+    filter: blur(100px);
+}
+
+.facilities-bottom {
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 10px;
+    margin-right: 25px;
+}
+
+.facilities-bottom .facilities-content {
+    margin-left: auto;
+}
+
+.footer {
+    padding: 100px 0 128px;
+    max-width: 910px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.footer-text {
+    color: #C5C5C5;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.footer-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    color: var(--text-color);
+}
+
+@media screen and (max-width: 1420px) {
+    .container {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .container {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .subsciption-images::after {
+        background-position: left 0 top 140px, right -147px bottom 60px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .features-list {
+        column-gap: 20px;
+    }
+
+    .subscription {
+        padding-bottom: 72px;
+    }
+
+    .subscription-images {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: nowrap;
+        gap: 20px;
+        width: 456px;
+        overflow-x: hidden;
+    }
+
+    .subsciption-image {
+        position: static;
+        display: block;
+        transform: rotate(0);
+        height: 456px;
+        border-radius: 48px;
+    }
+
+    .subscription-images::before {
+        bottom: calc(50% + -46px);
+        left: calc(50% + 100px);
+    }
+
+    .subscription::after {
+        display: none;
+    }
+
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+        gap: 12px;
+    }
+
+    .button-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background-color: var(--yellow);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .button-arrow:hover{
+        opacity: 0.8;
+    }
+
+    .button-arrow:active{
+        opacity: 0.6;
+    }
+
+    .button-arrow:disabled{
+        opacity: 1;
+       cursor: not-allowed;
+       pointer-events: all;
+    }
+
+    .button-left{
+        transform: rotate(180deg);
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+
+    .header-back {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    body {
+        font-size: 22px;
+    }
+
+    .site-header {
+        background-position: right bottom;
+    }
+
+    .logo-link,
+    .logo-link svg {
+        width: 112px;
+        height: 32px;
+    }
+
+    .logo-link {
+        margin-bottom: 30px;
+    }
+
+    .header-content {
+        max-width: 311px;
+    }
+
+    .header-heading {
+        max-width: 150px;
+        font-size: 36px;
+        margin-bottom: 23px;
+    }
+
+    .price-new {
+        padding: 5px 8px;
+        line-height: 13px;
+    }
+
+    .price-old {
+        padding: 7px 5px 7px 33px;
+        font-size: 13px;
+        line-height: 9px;
+    }
+
+    .header-content .button {
+        display: none;
+    }
+
+    .features {
+        padding-bottom: 65px;
+    }
+
+    .features-list {
+        row-gap: 24px;
+    }
+
+    .features-heading {
+        font-size: 32px;
+        letter-spacing: -0.64px;
+        margin-bottom: 28px;
+    }
+
+    .features-item {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        padding-top: 0;
+        width: 100%;
+    }
+
+    .features-item::before {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .features-text {
+        max-width: 400px;
+    }
+
+    .heading {
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 600px;
+        font-size: 42px;
+        margin-bottom: 35px;
+    }
+
+    .subscription-text {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 42px;
+    }
+
+    .subscription::after {
+        display: none;
+    }
+
+    .facilities-text {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 25px;
+    }
+
+
+    .facilities-content .button {
+        width: 100%;
+        padding: 18px 0;
+        line-height: 13px;
+        font-size: 18px;
+    }
+
+    .footer {
+        padding: 60px 16px 70px;
+        max-width: 910px;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+
+    .footer-text {
+        font-size: 10px;
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+    body {
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    .site-header {
+        padding: 32px 0 310px;
+        background-size: 120%;
+        background-position: left calc(50% - 27px) bottom calc(50% - 130px);
+    }
+
+    .features-item {
+        gap: 16px;
+    }
+
+    .features-text {
+        max-width: 210px;
+    }
+
+    .heading {
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 300px;
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+
+    .facilities-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 344px;
+    }
+
+    .facilities{
+        padding-top: 0;
+        background-image: url("../assets/images/circle_smkt.png");
+        background-size: 524px;
+        background-position: left 50% top calc(50% + 8px);
+    }
+
+    .subscription-images {
+        width: 343px;
+    }
+
+    .subsciption-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .subscription-images::before {
+        width: 180px;
+        height: 180px;
+        top: calc(50% - 152px);
+        left: calc(50% + 43px);
+        background-size: contain;
+    }
 }
